@@ -12,42 +12,36 @@ export default {
 		name: "Cursor",
 		description: "",
 		baseCost: 15,
-		baseRate: 0.1,
-		qty: 0
+		baseRate: 0.1
 	},
 	[BUILDINGS.GRANDMA]: {
 		name: "Grandma",
 		description: "",
 		baseCost: 100,
-		baseRate: 0.5,
-		qty: 0
+		baseRate: 0.5
 	},
 	[BUILDINGS.FARM]: {
 		name: "Farm",
 		description: "",
 		baseCost: 500,
-		baseRate: 4,
-		qty: 0
+		baseRate: 4
 	},
 	[BUILDINGS.FACTORY]: {
 		name: "Factory",
 		description: "",
 		baseCost: 3000,
-		baseRate: 10,
-		qty: 0
+		baseRate: 10
 	},
 	[BUILDINGS.MINE]: {
 		name: "Mine",
 		description: "",
 		baseCost: 10000,
-		baseRate: 40,
-		qty: 0
+		baseRate: 40
 	},
 	[BUILDINGS.SHIPMENT]: {
-		name: "shipment",
+		name: "Shipment",
 		description: "",
 		baseCost: 40000,
-		baseRate: 100,
-		qty: 0
+		baseRate: 100
 	}
 };

@@ -4,7 +4,7 @@ const points = createSlice({
 	name: "points",
 	initialState: {
 		value: 0,
-		perSecond: 0
+		lastConnection: null
 	},
 	reducers: {
 		incrementByAmount(state, action) {
@@ -17,14 +17,8 @@ const points = createSlice({
 		decrement(state) {
 			state.value--;
 		},
-		incrementPerSecondByAmount(state, action) {
-			state.value += action.payload;
-		},
-		incrementPerSecond(state) {
-			state.value++;
-		},
-		decrementPerSecond(state) {
-			state.value--;
+		setLastConnection(state, action) {
+			state.lastConnection = action.payload;
 		}
 	}
 });
@@ -35,6 +29,7 @@ export const {
 	incrementByAmount,
 	incrementPerSecond,
 	decrementPerSecond,
-	incrementPerSecondByAmount
+	incrementPerSecondByAmount,
+	setLastConnection
 } = points.actions;
 export default points.reducer;

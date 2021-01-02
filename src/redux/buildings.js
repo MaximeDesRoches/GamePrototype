@@ -4,16 +4,16 @@ const { createSlice } = require("@reduxjs/toolkit");
 
 const buildings = createSlice({
 	name: "buildings",
-	initialState: b,
+	initialState: {
+		quantities: {}
+	},
 	reducers: {
 		buy(state, action) {
 			const { type, qty } = action.payload;
-			return {
-				...state,
-				[type]: {
-					...state[type],
-					qty: state[type].qty + qty
-				}
+
+			state.quantities = {
+				...state.quantities,
+				[type]: (state?.quantities[type] || 0) + qty
 			};
 		}
 	}

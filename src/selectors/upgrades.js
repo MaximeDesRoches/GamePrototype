@@ -1,10 +1,27 @@
 import { createSelector } from "@reduxjs/toolkit";
+import u from "../objects/upgrades";
 
-export const upgradesStateSelector = (state) => state.upgrades;
-const typePropSelector = (state, props) => props.type;
+export const upgradesStateSelector = () => u;
+const upgradesOwnedSelector = (state) => state.upgrades.owned;
+const typePropSelector = (state, props) => props?.type;
+
+export const upgradesSelector = createSelector(
+	[upgradesStateSelector, upgradesOwnedSelector],
+	(upgrades, owned) => {
+		const u = {};
+		Object.keys(upgrades).forEach((type) => {
+			u[type] = {
+				...upgrades[type],
+				owned: Boolean(owned[type])
+			};
+		});
+
+		return u;
+	}
+);
 
 export const upgradeSelector = createSelector(
-	[upgradesStateSelector, typePropSelector],
+	[upgradesSelector, typePropSelector],
 	(upgrades, type) => {
 		return upgrades[type] ? upgrades[type] : null;
 	}
