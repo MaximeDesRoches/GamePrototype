@@ -10,6 +10,10 @@
   --secondary-color_active: #0381ab;
 }
 
+* {
+	box-sizing: border-box;
+}
+
 body {
   font-family: Langar, sans-serif;
   background: white;
@@ -44,10 +48,25 @@ button {
 	}
 }
 
+.building-container {
+	margin: 10px 0;
+	display: flex;
+}
+
+.building-quantity {
+	width: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 4px;
+	padding: 12px 16px;
+	margin-right: 10px;
+	pointer-events: none;
+
+	border: 2px solid var(--primary-color);
+}
 
 .building {
-	margin: 5px 0;
-
 	width: 100%;
 	text-align: center;
 	background: var(--primary-color);
@@ -70,6 +89,7 @@ button {
 		opacity: 0.25;
 	}
 }
+
 
 .upgrade-button {
 	margin: 5px;

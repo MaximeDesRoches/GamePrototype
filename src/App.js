@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import Button from "./Button";
-import { incrementByAmount } from "./redux/points";
+import BuildingButton from "./BuildingButton";
+import { incrementByAmount, setLastConnection } from "./redux/points";
+import { buildingsStateSelector } from "./selectors/buildings";
 import { perSecondsSelector } from "./selectors/points";
+import { upgradesStateSelector } from "./selectors/upgrades";
 import "./styles.scss";
 import UpgradeButton from "./UpgradeButton";
 
@@ -11,12 +13,12 @@ const mapStateToProps = (state) => {
 	return {
 		points: state.points.value,
 		pointsPerSecond: perSecondsSelector(state),
-		buildings: state.buildings,
-		upgrades: state.upgrades
+		buildings: buildingsStateSelector(),
+		upgrades: upgradesStateSelector()
 	};
 };
 
-function App({ points, pointsPerSecond, add, buildings, upgrades }) {
+function App({ points, pointsPerSecond, add, buildings, upgrades, setLC }) {
 	useEffect(() => {
 		let last;
 
@@ -33,12 +35,16 @@ function App({ points, pointsPerSecond, add, buildings, upgrades }) {
 			last = t;
 		}
 
+		window.addEventListener("beforeunload", () => {
+			setLC(Date.now());
+		});
+
 		let req = requestAnimationFrame(loop);
 
 		return () => {
 			cancelAnimationFrame(req);
 		};
-	}, [pointsPerSecond, add]);
+	}, [pointsPerSecond, add, setLC]);
 
 	return (
 		<div className="App">
@@ -52,7 +58,7 @@ function App({ points, pointsPerSecond, add, buildings, upgrades }) {
 			</button>
 
 			{Object.keys(buildings).map((b) => (
-				<Button key={b} type={b} />
+				<BuildingButton key={b} type={b} />
 			))}
 
 			{Object.keys(upgrades).map((b) => (
@@ -65,7 +71,8 @@ function App({ points, pointsPerSecond, add, buildings, upgrades }) {
 export default connect(mapStateToProps, (dispatch) =>
 	bindActionCreators(
 		{
-			add: incrementByAmount
+			add: incrementByAmount,
+			setLC: setLastConnection
 		},
 		dispatch
 	)

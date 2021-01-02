@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { throttle } from "lodash";
+//import { createLogger } from "redux-logger";
 import rootReducer from "./reducers/reducer";
 
 const loadState = () => {
@@ -8,6 +9,9 @@ const loadState = () => {
 		if (serializedState === null) {
 			return undefined;
 		}
+
+		console.log("initial state", JSON.parse(serializedState));
+
 		return JSON.parse(serializedState);
 	} catch (err) {
 		return undefined;
@@ -24,8 +28,8 @@ const saveState = (state) => {
 };
 
 const store = configureStore({
-	reducer: rootReducer,
-	preloadedState: loadState()
+	preloadedState: loadState(),
+	reducer: rootReducer
 	//middleware: [logger, ...getDefaultMiddleware()]
 });
 

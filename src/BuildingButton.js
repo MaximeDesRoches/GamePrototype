@@ -5,14 +5,15 @@ import { buy } from "./redux/buildings";
 import { incrementByAmount } from "./redux/points";
 import { buildingSelector } from "./selectors/buildings";
 
-function Button({
+function BuildingButton({
 	points,
 	name,
 	type = "",
 	rate = 0.2,
 	cost = 0,
 	buyBuilding,
-	pay
+	pay,
+	qty
 }) {
 	const disabled = points < cost;
 
@@ -22,9 +23,12 @@ function Button({
 	}
 
 	return (
-		<button className="building" disabled={disabled} onClick={onClick}>
-			{name} +{rate.toFixed(2)}pps [{cost}pts]
-		</button>
+		<div className="building-container">
+			<div className="building-quantity">{qty}</div>
+			<button className="building" disabled={disabled} onClick={onClick}>
+				{name} +{rate.toFixed(2)}pps [{cost}pts]
+			</button>
+		</div>
 	);
 }
 
@@ -43,4 +47,4 @@ export default connect(mapStateToProps, (dispatch) =>
 		},
 		dispatch
 	)
-)(memo(Button));
+)(memo(BuildingButton));
