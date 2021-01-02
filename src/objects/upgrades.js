@@ -5,7 +5,7 @@ export default {
 		description: "",
 		building: BUILDINGS.CURSOR,
 		click: null,
-		cost: 10,
+		cost: 100,
 		amount: 0.25,
 		owned: false
 	},
@@ -13,16 +13,16 @@ export default {
 		description: "",
 		building: BUILDINGS.CURSOR,
 		click: null,
-		cost: 100,
-		amount: 0.25,
+		cost: 1000,
+		amount: 0.5,
 		owned: false
 	},
 	cursor3: {
 		description: "",
 		building: BUILDINGS.CURSOR,
 		click: null,
-		cost: 1000,
-		amount: 0.25,
+		cost: 10000,
+		amount: 1.0,
 		owned: false
 	}
 };

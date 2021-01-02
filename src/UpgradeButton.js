@@ -5,7 +5,7 @@ import { buy } from "./redux/upgrades";
 import { incrementByAmount } from "./redux/points";
 import { upgradeSelector } from "./selectors/upgrades";
 
-function UpgradeButton({ points, type, owned, pay, cost, buyUpgrade }) {
+function UpgradeButton({ points, type, owned, amount, pay, cost, buyUpgrade }) {
 	function onClick() {
 		if (!owned && points >= cost) {
 			buyUpgrade({ type });
@@ -21,7 +21,7 @@ function UpgradeButton({ points, type, owned, pay, cost, buyUpgrade }) {
 			className={`upgrade-button ${owned ? "owned" : ""}`}
 			onClick={onClick}
 		>
-			{type}
+			{type} [+{amount * 100}%]
 		</button>
 	);
 }
