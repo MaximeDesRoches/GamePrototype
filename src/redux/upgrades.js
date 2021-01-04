@@ -9,8 +9,8 @@ const upgrades = createSlice({
 		buy(state, action) {
 			const { type } = action.payload;
 
-			state.quantities = {
-				...state.quantities,
+			state.owned = {
+				...state.owned,
 				[type]: true
 			};
 		}

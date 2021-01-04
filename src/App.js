@@ -1,16 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import BuildingButton from "./BuildingButton";
+import LastConnectionModal from "./LastConnectionModal";
 import { incrementByAmount, setLastConnection } from "./redux/points";
 import { buildingsStateSelector } from "./selectors/buildings";
-import { perSecondsSelector } from "./selectors/points";
+import {
+	lastConnectionPointsSelector,
+	perSecondsSelector
+} from "./selectors/points";
 import { upgradesStateSelector } from "./selectors/upgrades";
 import "./styles.scss";
 import UpgradeButton from "./UpgradeButton";
 
 const mapStateToProps = (state) => {
 	return {
+		lastConnectionPoints: lastConnectionPointsSelector(state),
 		points: state.points.value,
 		pointsPerSecond: perSecondsSelector(state),
 		buildings: buildingsStateSelector(),
@@ -18,7 +23,15 @@ const mapStateToProps = (state) => {
 	};
 };
 
-function App({ points, pointsPerSecond, add, buildings, upgrades, setLC }) {
+function App({
+	lastConnectionPoints,
+	points,
+	pointsPerSecond,
+	add,
+	buildings,
+	upgrades,
+	setLC
+}) {
 	useEffect(() => {
 		let last;
 
@@ -36,6 +49,7 @@ function App({ points, pointsPerSecond, add, buildings, upgrades, setLC }) {
 		}
 
 		window.addEventListener("beforeunload", () => {
+			console.log("Last Connection");
 			setLC(Date.now());
 		});
 
@@ -48,6 +62,7 @@ function App({ points, pointsPerSecond, add, buildings, upgrades, setLC }) {
 
 	return (
 		<div className="App">
+			<LastConnectionModal />
 			<div className="ui">
 				<div>Points: {points.toFixed(2)}</div>
 				<div>Points per second: {pointsPerSecond.toFixed(2)}</div>
