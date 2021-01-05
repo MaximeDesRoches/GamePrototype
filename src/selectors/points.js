@@ -27,15 +27,16 @@ export const perSecondsSelector = createSelector(
 export const lastConnectionPointsSelector = createSelector(
 	[perSecondsSelector, lastConnectionStateSelector],
 	(pointsPerSecond, lastConnection) => {
-		if (lastConnection == null) return 0;
+		if (lastConnection == null)
+			return { lastConnectionPoints: 0, lastConnection: 0 };
 
 		const delta = (Date.now() - lastConnection) / 1000;
 
 		if (delta >= 30) {
 			const pts = pointsPerSecond * delta;
-			return pts;
+			return { lastConnectionPoints: pts, lastConnection: delta };
 		}
 
-		return 0;
+		return { lastConnectionPoints: 0, lastConnection: delta };
 	}
 );

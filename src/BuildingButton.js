@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux";
 import { buy } from "./redux/buildings";
 import { incrementByAmount } from "./redux/points";
 import { buildingSelector } from "./selectors/buildings";
+import { fn } from "./utils";
 
 function BuildingButton({
 	points,
@@ -26,7 +27,7 @@ function BuildingButton({
 		<div className="building-container">
 			<div className="building-quantity">{qty}</div>
 			<button className="building" disabled={disabled} onClick={onClick}>
-				{name} +{rate.toFixed(2)}pps [{cost}pts]
+				{name} +{fn(rate)} pps [{fn(cost)} pts]
 			</button>
 		</div>
 	);

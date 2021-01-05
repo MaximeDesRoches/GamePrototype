@@ -21,5 +21,12 @@ export default {
 		click: null,
 		cost: 10000,
 		amount: 1.0
+	},
+	grandma1: {
+		description: "",
+		building: BUILDINGS.GRANDMA,
+		click: null,
+		cost: 500000,
+		amount: 2.0
 	}
 };

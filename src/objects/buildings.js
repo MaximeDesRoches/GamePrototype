@@ -4,7 +4,8 @@ export const BUILDINGS = {
 	FARM: "farm",
 	FACTORY: "factory",
 	MINE: "mine",
-	SHIPMENT: "shipment"
+	SHIPMENT: "shipment",
+	ULTIMATE: "ultimate"
 };
 
 export default {
@@ -43,5 +44,11 @@ export default {
 		description: "",
 		baseCost: 40000,
 		baseRate: 100
+	},
+	[BUILDINGS.ULTIMATE]: {
+		name: "ULTIMATE MADNESS!",
+		description: "",
+		baseCost: 999999999,
+		baseRate: 999999
 	}
 };

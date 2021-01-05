@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import BuildingButton from "./BuildingButton";
@@ -12,6 +12,7 @@ import {
 import { upgradesStateSelector } from "./selectors/upgrades";
 import "./styles.scss";
 import UpgradeButton from "./UpgradeButton";
+import { fn } from "./utils";
 
 const mapStateToProps = (state) => {
 	return {
@@ -64,8 +65,8 @@ function App({
 		<div className="App">
 			<LastConnectionModal />
 			<div className="ui">
-				<div>Points: {points.toFixed(2)}</div>
-				<div>Points per second: {pointsPerSecond.toFixed(2)}</div>
+				<div>Points: {fn(points)}</div>
+				<div>Points per second: {fn(pointsPerSecond)}</div>
 			</div>
 
 			<button className="manual" onClick={() => add(1)}>

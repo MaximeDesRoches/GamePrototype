@@ -19,6 +19,8 @@ const points = createSlice({
 		},
 		setLastConnection(state, action) {
 			state.lastConnection = action.payload;
+
+			console.log("set Last Connection", action.payload);
 		}
 	}
 });
