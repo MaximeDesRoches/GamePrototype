@@ -18,7 +18,7 @@ function UpgradeButton({ points, type, owned, amount, pay, cost, buyUpgrade }) {
 	return (
 		<button
 			disabled={disabled}
-			className={`upgrade-button ${owned ? "owned" : ""}`}
+			className={`button upgrade-button ${owned ? "owned" : ""}`}
 			onClick={onClick}
 		>
 			{type} [+{amount * 100}%]

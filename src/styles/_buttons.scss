@@ -1,0 +1,28 @@
+button {
+	font-family: inherit;
+	outline: none;
+}
+
+.button {
+	border-radius: 4px;
+	background: var(--color-button-bg, var(--color-primary));
+	padding: 12px 16px;
+	border: none;
+	width: 100%;
+	text-align: center;
+
+	&:not(:disabled) {
+		&:hover {
+			cursor: pointer;
+			background: var(--color-button-bg-hover, var(--color-primary-hover));
+		}
+
+		&:active {
+			background: var(--color-button-bg-active, var(--color-primary-active));
+		}
+	}
+
+	&:disabled {
+		opacity: 0.25;
+	}
+}

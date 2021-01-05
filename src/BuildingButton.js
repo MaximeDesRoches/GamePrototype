@@ -26,7 +26,11 @@ function BuildingButton({
 	return (
 		<div className="building-container">
 			<div className="building-quantity">{qty}</div>
-			<button className="building" disabled={disabled} onClick={onClick}>
+			<button
+				className="button building"
+				disabled={disabled}
+				onClick={onClick}
+			>
 				{name} +{fn(rate)} pps [{fn(cost)} pts]
 			</button>
 		</div>

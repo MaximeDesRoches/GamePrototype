@@ -1,0 +1,19 @@
+.header {
+	display: flex;
+	background: white;
+	padding: 20px;
+	border-radius: 4px;
+	justify-content: space-around;
+	text-align: center;
+
+	font-size: 14px;
+
+	.label {
+		font-size: 0.8em;
+	}
+
+	.value {
+		font-weight: bold;
+		font-size: 1em;
+	}
+}

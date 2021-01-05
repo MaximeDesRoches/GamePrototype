@@ -10,7 +10,7 @@ import {
 	perSecondsSelector
 } from "./selectors/points";
 import { upgradesStateSelector } from "./selectors/upgrades";
-import "./styles.scss";
+import "./styles/index.scss";
 import UpgradeButton from "./UpgradeButton";
 import { fn } from "./utils";
 
@@ -64,9 +64,15 @@ function App({
 	return (
 		<div className="App">
 			<LastConnectionModal />
-			<div className="ui">
-				<div>Points: {fn(points)}</div>
-				<div>Points per second: {fn(pointsPerSecond)}</div>
+			<div className="header">
+				<div className="points">
+					<div className="label">Points</div>
+					<div className="value">{fn(points)}</div>
+				</div>
+				<div className="pps">
+					<div className="label">Points per second</div>
+					<div className="value">{fn(pointsPerSecond)}</div>
+				</div>
 			</div>
 
 			<button className="manual" onClick={() => add(1)}>

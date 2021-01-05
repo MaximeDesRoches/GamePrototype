@@ -30,6 +30,8 @@ function LastConnectionModal({
 
 	const pts = fn(lastConnectionPoints);
 
+	console.log("Last Connection", lastConnection, "seconds ago");
+
 	return lastConnectionPoints > 0 ? (
 		<div className="last-connection-modal">
 			<div className="content">
