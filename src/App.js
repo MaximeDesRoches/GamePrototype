@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import BuildingButton from "./BuildingButton";
 import LastConnectionModal from "./LastConnectionModal";
+import Map from "./Map";
 import { incrementByAmount, setLastConnection } from "./redux/points";
 import { buildingsStateSelector } from "./selectors/buildings";
 import {
@@ -25,7 +26,7 @@ const mapStateToProps = (state) => {
 };
 
 function App({
-	lastConnectionPoints,
+	setKeyModifiers,
 	points,
 	pointsPerSecond,
 	add,
@@ -63,6 +64,7 @@ function App({
 
 	return (
 		<div className="App">
+			<Map />
 			<LastConnectionModal />
 			<div className="header">
 				<div className="points">
@@ -75,17 +77,18 @@ function App({
 				</div>
 			</div>
 
-			<button className="manual" onClick={() => add(1)}>
-				+1 pt
-			</button>
+			<div className="ctn-buttons">
+				<button className="manual" onClick={() => add(1)}>
+					+1 pt
+				</button>
+				{Object.keys(buildings).map((b) => (
+					<BuildingButton key={b} type={b} />
+				))}
 
-			{Object.keys(buildings).map((b) => (
-				<BuildingButton key={b} type={b} />
-			))}
-
-			{Object.keys(upgrades).map((b) => (
-				<UpgradeButton key={b} type={b} />
-			))}
+				{Object.keys(upgrades).map((b) => (
+					<UpgradeButton key={b} type={b} />
+				))}
+			</div>
 		</div>
 	);
 }

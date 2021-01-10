@@ -18,6 +18,7 @@ body {
   font-family: Recursive, sans-serif;
   background: #191919;
   font-variant-numeric: tabular-nums;
+  overflow: hidden;
 }
 
 .App {
@@ -27,6 +28,11 @@ body {
 
 @import 'buttons';
 @import 'header';
+@import 'map';
+
+.ctn-buttons {
+	transform: translate(110%, 0);
+}
 
 .manual {
 	margin: 20px 0;

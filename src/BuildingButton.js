@@ -1,6 +1,11 @@
 import React, { memo } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import {
+	CTRL_MULTIPLIER,
+	SHIFT_CTRL_MULTIPLIER,
+	SHIFT_MULTIPLIER
+} from "./Constants";
 import { buy } from "./redux/buildings";
 import { incrementByAmount } from "./redux/points";
 import { buildingSelector } from "./selectors/buildings";

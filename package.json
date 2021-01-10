@@ -1,31 +1,38 @@
 {
-	"name": "gameprototype",
-	"version": "1.0.0",
-	"description": "",
-	"keywords": [],
-	"main": "src/index.js",
-	"dependencies": {
-		"@reduxjs/toolkit": "1.5.0",
-		"lodash": "4.17.20",
-		"node-sass": "5.0.0",
-		"numeral": "2.0.6",
-		"react": "17.0.0",
-		"react-dom": "17.0.0",
-		"react-redux": "7.2.2",
-		"react-scripts": "3.4.3",
-		"redux": "4.0.5",
-		"redux-logger": "3.0.6"
-	},
-	"devDependencies": {
-		"typescript": "3.8.3"
-	},
-	"scripts": {
-		"start": "react-scripts start",
-		"build": "react-scripts build",
-		"test": "react-scripts test --env=jsdom",
-		"eject": "react-scripts eject",
-		"build:css": "node-sass src/ -o src/ ",
-		"watch:css": "npm run build:css && node-sass src/ -o src/ -w -r"
-	},
-	"browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
+  "name": "gameprototype",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "main": "src/index.js",
+  "dependencies": {
+    "@reduxjs/toolkit": "1.5.0",
+    "lodash": "4.17.20",
+    "node-sass": "5.0.0",
+    "numeral": "2.0.6",
+    "react": "17.0.0",
+    "react-dom": "17.0.0",
+    "react-redux": "7.2.2",
+    "react-scripts": "3.4.3",
+    "react-three-fiber": "5.3.11",
+    "redux": "4.0.5",
+    "redux-logger": "3.0.6",
+    "three": "0.124.0"
+  },
+  "devDependencies": {
+    "typescript": "3.8.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "build:css": "node-sass src/ -o src/ ",
+    "watch:css": "npm run build:css && node-sass src/ -o src/ -w -r"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
